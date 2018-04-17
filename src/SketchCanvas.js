@@ -149,7 +149,8 @@ class SketchCanvas extends React.Component {
             parseFloat((gestureState.y0 - this._offset.y).toFixed(2) * this._screenScale)
           ]
         )
-        this._path.data.push(`${parseFloat(gestureState.x0 - this._offset.x).toFixed(2)},${parseFloat(gestureState.y0 - this._offset.y).toFixed(2)}`)
+        const timestamp = Date.now();
+        this._path.data.push(`${parseFloat(gestureState.x0 - this._offset.x).toFixed(2)},${parseFloat(gestureState.y0 - this._offset.y).toFixed(2)},${timestamp}`)
         this.props.onStrokeStart()
       },
       onPanResponderMove: (evt, gestureState) => {
